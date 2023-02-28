@@ -2,10 +2,98 @@ $SELECTOR_HEADING: getGlobal("SITE.SELECTOR_HEADING");
 $HEADING_PREFIX_AND_SUFFIX: " ★ ";
 
 :root {
-  --main-color: #05acff;
+  --main-color: #f04; //WAS: #05acff
   --main-text-color: #fff;
+  --dark-background-color-primary: #222;
+  --dark-background-color-secondary: #444;
+  --dark-foreground-color: #bbb;
   // --d2l-color-celestine: #ffcb05;
 }
+
+// DARK MODE
+
+.d2l-tiles-container,
+.d2l-body,
+#d2l_body,
+d2l-card,
+.d2l-dropdown-content-width,
+.d2l-navigation-s-mobile-menu-content,
+.d2l-floating-buttons-container,
+.front,
+button.d2l-label-text,
+#app #root-wrapper .vui-fileviewer .vui-fileviewer-generic button,
+body#d2l_body {
+  background-color: var(--dark-background-color-primary) !important;
+}
+
+body,
+.d2l-navigation-s,
+.d2l-tile,
+d2l-menu-item,
+.vui-list>.vui-active,
+.vui-list>.vui-selected,
+.main,
+[dir] #app #root-wrapper .topic .topic-box,
+[dir] #app #root-wrapper .unit-box, [dir] #app #root-wrapper .lesson-box,
+.d2l-pulseapp-banner,
+.d2l-fileinput-add,
+.d2l-htmleditor-container {
+  background-color: var(--dark-background-color-secondary) !important;
+}
+
+body,
+.d2l-typography,
+.d2l-body-small,
+d2l-icon,
+.d2l-list-item-content-text,
+.d2l-link,
+d2l-menu-item,
+.d2l-body-compact,
+.d2l-textblock-secondary,
+d2l-cs-activity-message-info,
+#app #root-wrapper .module-display .module-inner-container,
+button,
+#app #root-wrapper .unit-box .co-content, #app #root-wrapper .lesson-box .co-content,
+#app #root-wrapper .topic-box .co-content,
+.d_tabs_link,
+.front,
+.d2l-fileinput-drop-msg,
+#app #root-wrapper .module-display .module-inner-container .module-description-body,
+#app #root-wrapper .content-panel,
+#app #root-wrapper .vui-fileviewer .vui-fileviewer-generic .vui-fileviewer-generic-subheader,
+#app #root-wrapper .vui-fileviewer .vui-fileviewer-generic .vui-fileviewer-generic-size,
+.vui-fileviewer-generic-header,
+a {
+  color: var(--dark-foreground-color) !important;
+  fill: var(--dark-foreground-color) !important;
+}
+
+.d2l-button,
+.d2l-edit,
+.d2l-longedit,
+.d2l-select,
+.d2l-multiselect,
+.tox .tox-edit-area__iframe {
+  background-color: var(--dark-foreground-color) !important;
+  color: var(--dark-background-color-primary) !important;
+}
+
+.d2l-more-less-blur,
+d2l-portfolio-header-student,
+.dco_c,
+#d2l_body,
+d2l-button-icon,
+.fadeout,
+#app #root-wrapper .vui-fileviewer,
+#d2l_body.vui-typography.d2l-typography.daylight.dbd_frame {
+  background: transparent !important;
+}
+
+#app #root-wrapper .vui-fileviewer .vui-fileviewer-generic button {
+  border-width: 0px !important;
+}
+
+// END
 
 // This makes the little accent bar at the top of the page change color
 html {
