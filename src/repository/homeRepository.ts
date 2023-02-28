@@ -69,7 +69,7 @@ export class HomeRepository {
         const courses = document.getElementsByClassName(
           "d2l-my-courses-widget d2l-token-receiver"
         )?.[0]?.shadowRoot?.children[0]?.shadowRoot?.children[2]?.children[0]
-          ?.children[0]?.shadowRoot?.children[1]?.shadowRoot?.children[1]
+          ?.children[0]?.shadowRoot?.children[1]?.shadowRoot?.children[2]
           ?.children;
 
         if (courses) {
@@ -92,8 +92,8 @@ export class HomeRepository {
         tries++;
 
         const courseUrl =
-          course?.shadowRoot?.children[1].shadowRoot?.children[0].children[0];
-
+          course?.shadowRoot?.children[1].shadowRoot?.children[1].children[0];
+        
         if (courseUrl) {
           clearInterval(interval);
           resolve(courseUrl);
