@@ -83,4 +83,52 @@ export class GlobalRepository {
       }, 10);
     });
   }
+
+  // For each shadow root. Either immediately or as they appear.
+  public forEachShadowRoot(callbackfn: (value: ShadowRoot) => void) {
+
+    this._forEachUnderlyingShadowRoot(document.documentElement, callbackfn);
+
+  }
+
+  private _forEachUnderlyingShadowRoot(root: Element | ShadowRoot, callbackfn: (value: ShadowRoot) => void) {
+    
+    const rootMutationObserver = new MutationObserver((mutations: MutationRecord[], observer: MutationObserver) => {
+      for (const mutation of mutations) {
+        if (mutation.type === 'childList') {
+          mutation.addedNodes.forEach(n => {
+            if (n.nodeType == n.ELEMENT_NODE) {
+              const e = <Element> n
+              const shadowRoot = e.shadowRoot;
+              if(shadowRoot) {
+                callbackfn(shadowRoot);
+                this._forEachUnderlyingShadowRoot(shadowRoot, callbackfn);
+                rootMutationObserver.observe(root, {
+                  childList: true,
+                  subtree: true
+                });
+              }
+              this._forEachUnderlyingShadowRoot(e, callbackfn);
+            }
+          });
+        }
+      }
+    });
+
+    rootMutationObserver.observe(root, {
+      childList: true,
+      subtree: true
+    });
+
+    var allNodes = root.querySelectorAll('*');
+    for (var i = 0; i < allNodes.length; i++) {
+      const child = allNodes[i];
+      const shadowRoot = child.shadowRoot;
+      if(shadowRoot) {
+        callbackfn(shadowRoot);
+        this._forEachUnderlyingShadowRoot(shadowRoot, callbackfn);
+      }
+    }
+
+  }
 }
