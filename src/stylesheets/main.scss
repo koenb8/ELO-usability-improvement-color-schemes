@@ -2,98 +2,149 @@ $SELECTOR_HEADING: getGlobal("SITE.SELECTOR_HEADING");
 $HEADING_PREFIX_AND_SUFFIX: " ★ ";
 
 :root {
-  --main-color: #f04; //WAS: #05acff
+  --main-color: #FFCB05;
   --main-text-color: #fff;
-  --dark-background-color-primary: #222;
-  --dark-background-color-secondary: #444;
-  --dark-foreground-color: #bbb;
   // --d2l-color-celestine: #ffcb05;
 }
 
 // DARK MODE
+.color-scheme-enabled,
+:host-context(.color-scheme-enabled) {
 
-.d2l-tiles-container,
-.d2l-body,
-#d2l_body,
-d2l-card,
-.d2l-dropdown-content-width,
-.d2l-navigation-s-mobile-menu-content,
-.d2l-floating-buttons-container,
-.front,
-button.d2l-label-text,
-#app #root-wrapper .vui-fileviewer .vui-fileviewer-generic button,
-body#d2l_body {
-  background-color: var(--dark-background-color-primary) !important;
+  --d2l-color-celestine: var(--main-color);
+  --d2l-color-celestine-minus-1: var(--main-color);
+
+  .d2l-tiles-container,
+  .d2l-body,
+  #d2l_body,
+  d2l-card,
+  .d2l-dropdown-content-width,
+  .d2l-navigation-s-mobile-menu-content,
+  .d2l-floating-buttons-container,
+  .front,
+  button.d2l-label-text,
+  #app #root-wrapper .vui-fileviewer .vui-fileviewer-generic button,
+  body#d2l_body,
+  .d2l-table > * > tr[header] > th {
+    background-color: var(--scheme-background-color-secondary) !important;
+  }
+
+  #app,
+  .d2l-navigation-s,
+  .d2l-tile,
+  d2l-menu-item,
+  .vui-list>.vui-active,
+  .vui-list>.vui-selected,
+  .main,
+  [dir] #app #root-wrapper .topic .topic-box,
+  [dir] #app #root-wrapper .unit-box, [dir] #app #root-wrapper .lesson-box,
+  .d2l-pulseapp-banner,
+  .d2l-fileinput-add,
+  .d2l-htmleditor-container,
+  .d2l-table > tbody {
+    background-color: var(--scheme-background-color-primary) !important;
+  }
+
+  body,
+  .d2l-typography,
+  .d2l-body-small,
+  d2l-icon,
+  .d2l-list-item-content-text,
+  .d2l-link,
+  d2l-menu-item,
+  .d2l-body-compact,
+  .d2l-textblock-secondary,
+  d2l-cs-activity-message-info,
+  #app #root-wrapper .module-display .module-inner-container,
+  button,
+  #app #root-wrapper .unit-box .co-content, #app #root-wrapper .lesson-box .co-content,
+  #app #root-wrapper .topic-box .co-content,
+  .d_tabs_link,
+  .front,
+  .d2l-fileinput-drop-msg,
+  #app #root-wrapper .module-display .module-inner-container .module-description-body,
+  #app #root-wrapper .content-panel,
+  #app #root-wrapper .vui-fileviewer .vui-fileviewer-generic .vui-fileviewer-generic-subheader,
+  #app #root-wrapper .vui-fileviewer .vui-fileviewer-generic .vui-fileviewer-generic-size,
+  .vui-fileviewer-generic-header,
+  a,
+  div.d2l-navigation-s-header-logo-area.d2l-navigation-s-header-no-home-icon div.d2l-navigation-s-title-container a.d2l-navigation-s-link,
+  h3,
+  .subtopic {
+    color: var(--scheme-foreground-color) !important;
+    fill: var(--scheme-foreground-color) !important;
+  }
+
+  .d2l-button,
+  .d2l-edit,
+  .d2l-longedit,
+  .d2l-select,
+  .d2l-multiselect,
+  .tox .tox-edit-area__iframe,
+  .d2l-input,
+  .progress {
+    background-color: var(--scheme-foreground-color) !important;
+    color: var(--scheme-background-color-secondary) !important;
+  }
+
+  .d2l-more-less-blur,
+  d2l-portfolio-header-student,
+  .dco_c,
+  #d2l_body,
+  d2l-button-icon,
+  .fadeout,
+  #app #root-wrapper .vui-fileviewer,
+  #d2l_body.vui-typography.d2l-typography.daylight.dbd_frame,
+  body.d2l-body.d2l-typography.vui-typography.daylight:has(div.d2l-htmlblock.d2l-htmlblock-inline-widget),
+  .d2l-grid[type=data] > :only-child > tr.d_ggl2 > td, 
+  .d2l-grid[type=data] > :only-child > tr.d_ggl2 > th, 
+  .d2l-grid[type=list] > :only-child > tr.d_ggl2 > td, 
+  .d2l-grid[type=list] > :only-child > tr.d_ggl2 > th {
+    background: transparent !important;
+  }
+
+  #app #root-wrapper .vui-fileviewer .vui-fileviewer-generic button {
+    border-width: 0px !important;
+  }
+
+  #logo-text {
+    fill: var(--scheme-foreground-color) !important;
+  }
+
+  a:hover,
+  a:active,
+  a h3:hover {
+    color: var(--main-color) !important;
+  }
+
+  .progress-bar {
+    background-color: var(--main-color) !important;
+  }
+
+  [dir] #app #root-wrapper .unit-box.selected,
+  [dir] #app #root-wrapper .topic .topic-box.selected,
+  [dir] #app #root-wrapper .lesson-box.selected,
+  .miletile.flip-container .front:has(a:active) {
+    box-shadow: 0 0 0 3px #fff, 0 0 0 7px var(--main-color) !important;
+  }
+
+  .vui-list>.vui-active, 
+  .vui-list>.vui-selected,
+  .vui-list>.vui-selected+li,
+  .vui-list>.vui-active+li {
+    border-top-color: var(--main-color) !important;
+  }
+
 }
 
-body,
-.d2l-navigation-s,
-.d2l-tile,
-d2l-menu-item,
-.vui-list>.vui-active,
-.vui-list>.vui-selected,
-.main,
-[dir] #app #root-wrapper .topic .topic-box,
-[dir] #app #root-wrapper .unit-box, [dir] #app #root-wrapper .lesson-box,
-.d2l-pulseapp-banner,
-.d2l-fileinput-add,
-.d2l-htmleditor-container {
-  background-color: var(--dark-background-color-secondary) !important;
+// Change colors of logo
+#logo-w-icon {
+  fill: var(--main-color);
 }
 
-body,
-.d2l-typography,
-.d2l-body-small,
-d2l-icon,
-.d2l-list-item-content-text,
-.d2l-link,
-d2l-menu-item,
-.d2l-body-compact,
-.d2l-textblock-secondary,
-d2l-cs-activity-message-info,
-#app #root-wrapper .module-display .module-inner-container,
-button,
-#app #root-wrapper .unit-box .co-content, #app #root-wrapper .lesson-box .co-content,
-#app #root-wrapper .topic-box .co-content,
-.d_tabs_link,
-.front,
-.d2l-fileinput-drop-msg,
-#app #root-wrapper .module-display .module-inner-container .module-description-body,
-#app #root-wrapper .content-panel,
-#app #root-wrapper .vui-fileviewer .vui-fileviewer-generic .vui-fileviewer-generic-subheader,
-#app #root-wrapper .vui-fileviewer .vui-fileviewer-generic .vui-fileviewer-generic-size,
-.vui-fileviewer-generic-header,
-a {
-  color: var(--dark-foreground-color) !important;
-  fill: var(--dark-foreground-color) !important;
+#logo-text {
+  fill: black;
 }
-
-.d2l-button,
-.d2l-edit,
-.d2l-longedit,
-.d2l-select,
-.d2l-multiselect,
-.tox .tox-edit-area__iframe {
-  background-color: var(--dark-foreground-color) !important;
-  color: var(--dark-background-color-primary) !important;
-}
-
-.d2l-more-less-blur,
-d2l-portfolio-header-student,
-.dco_c,
-#d2l_body,
-d2l-button-icon,
-.fadeout,
-#app #root-wrapper .vui-fileviewer,
-#d2l_body.vui-typography.d2l-typography.daylight.dbd_frame {
-  background: transparent !important;
-}
-
-#app #root-wrapper .vui-fileviewer .vui-fileviewer-generic button {
-  border-width: 0px !important;
-}
-
-// END
 
 // This makes the little accent bar at the top of the page change color
 html {
@@ -116,7 +167,8 @@ html {
   .d2l-navigation-s-group
   .d2l-navigation-s-group-wrapper
   d2l-icon,
-.module-triangle {
+.module-triangle,
+.d2l-navigation-s-group.d2l-dropdown-opener d2l-icon {
   color: var(--main-text-color) !important;
 }
 

@@ -60,6 +60,13 @@ export class GlobalRepository {
     });
   }
 
+  // // Get the d2l-navigation-header-right
+  public async getNavigationRight(): Promise<Element> {
+    return this.waitForElement(() => {
+      return document.querySelector("div.d2l-navigation-header-right");
+    });
+  }
+
   // Get the header img
   public async getHeaderImg(): Promise<HTMLImageElement> {
     let tries = 0;
@@ -81,6 +88,25 @@ export class GlobalRepository {
           reject();
         }
       }, 10);
+    });
+  }
+
+  // Get other elements
+  public async waitForElement(check: () => Element | null | undefined): Promise<Element> {
+    let tries = 0;
+    return new Promise((resolve, reject) => {
+      const interval = setInterval(() => {
+        tries++;
+
+        if (check()) {
+          clearInterval(interval);
+          resolve(check() as Element);
+        }
+        if (tries > 1000) {
+          clearInterval(interval);
+          reject();
+        }
+      }, 0.1);
     });
   }
 

@@ -4,6 +4,7 @@ import { Operation, operation } from "userscripter/lib/operations";
 import { PageController } from "./controller/pageController";
 import removeContainer from "./operations/courseContent/removeContainer";
 import modifyHeaderImg from "./operations/global/modifyHeaderImg";
+import addColorMenu from "./operations/global/addColorMenu";
 
 import modifyMenuBar from "./operations/global/modifyMenuBar";
 import modifyNavigationBar from "./operations/global/modifyNavigationBar";
@@ -23,6 +24,11 @@ const OPERATIONS: ReadonlyArray<Operation<any>> = [
     description: "modify header img",
     condition: ALWAYS,
     action: modifyHeaderImg,
+  }),
+  operation({
+    description: "add color menu",
+    condition: ALWAYS,
+    action: addColorMenu,
   }),
   operation({
     description: "modify navigation bar",
